@@ -1,0 +1,17 @@
+{
+    "name": "Redacted",
+    "version": "0.1.0",
+    "manifest_version": 2,
+    "description": "This extension hides the message content of GMail chat notifications.",
+    "content_scripts": [
+        {
+            "matches": ["https://*.google.com/*"],
+            "all_frames": true,
+            "js": ["redacted.js"]
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "https://*.google.com/*"
+    ]
+}
