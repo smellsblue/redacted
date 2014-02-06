@@ -8,6 +8,8 @@ script.innerHTML = "" +
     "    };\n" +
     "    window.webkitNotifications.createNotification = newCreate;\n" +
     "    window.webkitNotifications.constructor.prototype.createNotification = newCreate;\n" +
-    "})();"
+    // Because window.Notification is harder to monkeypatch.
+    "    window.Notification = null;\n" +
+    "})();";
 
-document.head.insertBefore(script, document.head.firstChild);
+(document.head || document.documentElement).appendChild(script);
